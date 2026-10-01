@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chennai Property Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #bbb;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1769aa;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .field {
+            flex: 1;
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d4f82;
+        }
+
+        .cloud {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏠 Chennai Property Portal</h1>
+
+    <p class="subtitle">
+        Cloud-Based Property Buying & Rental Application
+    </p>
+
+    <form>
+
+        <!-- Purpose -->
+        <label>Property Requirement</label>
+
+        <div class="radio-group">
+
+            <label>
+                <input type="radio" name="purpose" value="Buy" checked>
+                Buy
+            </label>
+
+            <label>
+                <input type="radio" name="purpose" value="Rent">
+                Rent
+            </label>
+
+        </div>
+
+        <!-- Property Type -->
+        <div class="field">
+
+            <label>Property Type</label>
+
+            <select>
+
+                <option>Residential</option>
+                <option>Commercial</option>
+                <option>Apartment</option>
+                <option>Villa</option>
+                <option>Independent House</option>
+                <option>Plot</option>
+
+            </select>
+
+        </div>
+
+        <!-- Place -->
+        <div class="row">
+
+            <div class="field">
+
+                <label>Place</label>
+
+                <select>
+
+                    <option>Chennai</option>
+                    <option>Adyar</option>
+                    <option>Anna Nagar</option>
+                    <option>T. Nagar</option>
+                    <option>Velachery</option>
+                    <option>Tambaram</option>
+                    <option>Porur</option>
+                    <option>OMR</option>
+                    <option>Sholinganallur</option>
+                    <option>Perungudi</option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label>Area</label>
+
+                <select>
+
+                    <option>500 - 1000 sq.ft</option>
+                    <option>1000 - 1500 sq.ft</option>
+                    <option>1500 - 2000 sq.ft</option>
+                    <option>2000 - 3000 sq.ft</option>
+                    <option>Above 3000 sq.ft</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Price Range -->
+        <div class="row">
+
+            <div class="field">
+
+                <label>Minimum Price Range</label>
+
+                <input type="number"
+                       placeholder="₹ Minimum">
+
+            </div>
+
+            <div class="field">
+
+                <label>Maximum Price Range</label>
+
+                <input type="number"
+                       placeholder="₹ Maximum">
+
+            </div>
+
+        </div>
+
+        <!-- Property Value -->
+
+        <div class="field">
+
+            <label>Property Value</label>
+
+            <input type="number"
+                   placeholder="Enter property value in ₹">
+
+        </div>
+
+        <!-- Rental Agreement -->
+
+        <div class="field">
+
+            <label>Rental Agreement</label>
+
+            <select>
+
+                <option>Required</option>
+                <option>Not Required</option>
+
+            </select>
+
+        </div>
+
+        <!-- Rental Duration -->
+
+        <div class="field">
+
+            <label>Rental Duration</label>
+
+            <select>
+
+                <option>6 Months</option>
+                <option>11 Months</option>
+                <option>1 Year</option>
+                <option>2 Years</option>
+
+            </select>
+
+        </div>
+
+        <!-- Customer Name -->
+
+        <div class="field">
+
+            <label>Customer Name</label>
+
+            <input type="text"
+                   placeholder="Enter your name">
+
+        </div>
+
+        <!-- Email -->
+
+        <div class="field">
+
+            <label>Email</label>
+
+            <input type="email"
+                   placeholder="Enter email">
+
+        </div>
+
+        <!-- Phone -->
+
+        <div class="field">
+
+            <label>Phone Number</label>
+
+            <input type="tel"
+                   placeholder="Enter phone number">
+
+        </div>
+
+        <!-- Submit -->
+
+        <button type="submit">
+            Search Property
+        </button>
+
+    </form>
+
+    <div class="cloud">
+
+        ☁ Cloud-Based SaaS Property Management System
+
+    </div>
+
+</div>
+
+</body>
+</html>
