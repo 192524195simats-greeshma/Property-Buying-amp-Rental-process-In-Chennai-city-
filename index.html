@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chennai Property Portal</title>
+    <title>Chennai Property Buying & Rental System</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f6f9;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 30px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f6fc;
+            color: #222;
+        }
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
         }
 
         .container {
-            max-width: 800px;
-            margin: auto;
+            width: 90%;
+            max-width: 1000px;
+            margin: 35px auto;
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px #bbb;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            text-align: center;
-            color: #1769aa;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
+        .purpose {
+            display: flex;
+            gap: 25px;
             margin-bottom: 25px;
         }
 
-        .row {
-            display: flex;
+        .purpose label {
+            font-weight: bold;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
-        .field {
-            flex: 1;
-            margin-bottom: 18px;
+        .form-group {
+            display: flex;
+            flex-direction: column;
         }
 
-        label {
-            display: block;
+        .form-group label {
             font-weight: bold;
-            margin-bottom: 7px;
+            margin-bottom: 8px;
         }
 
         input,
         select {
-            width: 100%;
-            padding: 11px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 6px;
-            box-sizing: border-box;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-
-        .radio-group label {
-            font-weight: normal;
-        }
-
-        .radio-group input {
-            width: auto;
+            font-size: 15px;
         }
 
         button {
             width: 100%;
-            padding: 13px;
-            background: #1769aa;
+            margin-top: 25px;
+            padding: 14px;
+            background: #1976d2;
             color: white;
             border: none;
             border-radius: 6px;
@@ -85,221 +89,210 @@
         }
 
         button:hover {
-            background: #0d4f82;
+            background: #125ca1;
         }
 
-        .cloud {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
-            font-size: 14px;
+        #results {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #eaf4ff;
+            border-radius: 8px;
         }
+
+        .property {
+            background: white;
+            padding: 18px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .property h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+        .book-btn {
+            background: #28a745;
+            margin-top: 15px;
+        }
+
+        .book-btn:hover {
+            background: #218838;
+        }
+
+        #confirmation {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #e8f7e8;
+            border: 1px solid #9ad49a;
+            border-radius: 8px;
+        }
+
+        #confirmation h2 {
+            color: #218838;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width: 700px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
+
+<header>
 
     <h1>🏠 Chennai Property Portal</h1>
 
-    <p class="subtitle">
-        Cloud-Based Property Buying & Rental Application
-    </p>
+    <p>Cloud-Based Property Buying & Rental Application</p>
 
-    <form>
+</header>
 
-        <!-- Purpose -->
-        <label>Property Requirement</label>
 
-        <div class="radio-group">
+<div class="container">
 
-            <label>
-                <input type="radio" name="purpose" value="Buy" checked>
-                Buy
-            </label>
 
-            <label>
-                <input type="radio" name="purpose" value="Rent">
-                Rent
-            </label>
+    <!-- BUY / RENT -->
 
-        </div>
+    <div class="purpose">
 
-        <!-- Property Type -->
-        <div class="field">
+        <label>
+
+            <input type="radio"
+                   name="purpose"
+                   value="Buy"
+                   checked>
+
+            Buy
+
+        </label>
+
+
+        <label>
+
+            <input type="radio"
+                   name="purpose"
+                   value="Rent">
+
+            Rent
+
+        </label>
+
+    </div>
+
+
+
+    <div class="form-grid">
+
+
+        <!-- PROPERTY TYPE -->
+
+        <div class="form-group">
 
             <label>Property Type</label>
 
-            <select>
+            <select id="propertyType">
 
                 <option>Residential</option>
+
                 <option>Commercial</option>
+
                 <option>Apartment</option>
+
                 <option>Villa</option>
+
                 <option>Independent House</option>
+
                 <option>Plot</option>
 
             </select>
 
         </div>
 
-        <!-- Place -->
-        <div class="row">
 
-            <div class="field">
 
-                <label>Place</label>
+        <!-- PLACE -->
 
-                <select>
+        <div class="form-group">
 
-                    <option>Chennai</option>
-                    <option>Adyar</option>
-                    <option>Anna Nagar</option>
-                    <option>T. Nagar</option>
-                    <option>Velachery</option>
-                    <option>Tambaram</option>
-                    <option>Porur</option>
-                    <option>OMR</option>
-                    <option>Sholinganallur</option>
-                    <option>Perungudi</option>
+            <label>Place</label>
 
-                </select>
+            <select id="place">
 
-            </div>
+                <option>Adyar</option>
 
-            <div class="field">
+                <option>Anna Nagar</option>
 
-                <label>Area</label>
+                <option>T. Nagar</option>
 
-                <select>
+                <option>Velachery</option>
 
-                    <option>500 - 1000 sq.ft</option>
-                    <option>1000 - 1500 sq.ft</option>
-                    <option>1500 - 2000 sq.ft</option>
-                    <option>2000 - 3000 sq.ft</option>
-                    <option>Above 3000 sq.ft</option>
+                <option>Tambaram</option>
 
-                </select>
+                <option>Porur</option>
 
-            </div>
+                <option>OMR</option>
+
+                <option>Sholinganallur</option>
+
+                <option>Perungudi</option>
+
+            </select>
 
         </div>
 
-        <!-- Price Range -->
-        <div class="row">
 
-            <div class="field">
 
-                <label>Minimum Price Range</label>
+        <!-- AREA -->
 
-                <input type="number"
-                       placeholder="₹ Minimum">
+        <div class="form-group">
 
-            </div>
+            <label>Area</label>
 
-            <div class="field">
+            <select id="area">
 
-                <label>Maximum Price Range</label>
+                <option>500 - 1000 sq.ft</option>
 
-                <input type="number"
-                       placeholder="₹ Maximum">
+                <option>1000 - 1500 sq.ft</option>
 
-            </div>
+                <option>1500 - 2000 sq.ft</option>
+
+                <option>2000 - 3000 sq.ft</option>
+
+                <option>Above 3000 sq.ft</option>
+
+            </select>
 
         </div>
 
-        <!-- Property Value -->
 
-        <div class="field">
 
-            <label>Property Value</label>
+        <!-- MIN PRICE -->
+
+        <div class="form-group">
+
+            <label>Minimum Price Range</label>
 
             <input type="number"
-                   placeholder="Enter property value in ₹">
+                   id="minPrice"
+                   placeholder="₹ Minimum">
 
         </div>
 
-        <!-- Rental Agreement -->
 
-        <div class="field">
 
-            <label>Rental Agreement</label>
+        <!-- MAX PRICE -->
 
-            <select>
-
-                <option>Required</option>
-                <option>Not Required</option>
-
-            </select>
-
-        </div>
-
-        <!-- Rental Duration -->
-
-        <div class="field">
-
-            <label>Rental Duration</label>
-
-            <select>
-
-                <option>6 Months</option>
-                <option>11 Months</option>
-                <option>1 Year</option>
-                <option>2 Years</option>
-
-            </select>
-
-        </div>
-
-        <!-- Customer Name -->
-
-        <div class="field">
-
-            <label>Customer Name</label>
-
-            <input type="text"
-                   placeholder="Enter your name">
-
-        </div>
-
-        <!-- Email -->
-
-        <div class="field">
-
-            <label>Email</label>
-
-            <input type="email"
-                   placeholder="Enter email">
-
-        </div>
-
-        <!-- Phone -->
-
-        <div class="field">
-
-            <label>Phone Number</label>
-
-            <input type="tel"
-                   placeholder="Enter phone number">
-
-        </div>
-
-        <!-- Submit -->
-
-        <button type="submit">
-            Search Property
-        </button>
-
-    </form>
-
-    <div class="cloud">
-
-        ☁ Cloud-Based SaaS Property Management System
-
-    </div>
-
-</div>
-
-</body>
-</html>
+       
